@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 
-interface IPage {
-    dummyProp?: undefined;
-}
-
-const Page: React.FC<IPage> = ({ dummyProp }) => {
-
-    return <p>Customers Page</p>;
+const Page: React.FC = () => {
+  return <p>Customers Page</p>;
 };
 
 export default Page;
