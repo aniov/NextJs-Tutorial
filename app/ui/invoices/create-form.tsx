@@ -1,16 +1,22 @@
-import { CustomerField } from '@/app/lib/definitions';
-import Link from 'next/link';
+import { CustomerField, Invoice } from "@/app/lib/definitions";
+import Link from "next/link";
 import {
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline';
-import { Button } from '@/app/ui/button';
+} from "@heroicons/react/24/outline";
+import { Button } from "@/app/ui/button";
+import { createInvoice } from "@/app/lib/actions";
+import React from "react";
 
-export default function Form({ customers }: { customers: CustomerField[] }) {
+interface IForm {
+  customers: CustomerField[];
+}
+
+const Form: React.FC<IForm> = ({ customers }) => {
   return (
-    <form>
+    <form action={createInvoice}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -109,4 +115,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
       </div>
     </form>
   );
-}
+};
+
+export default Form;
