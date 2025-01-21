@@ -3,11 +3,7 @@ import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import Form from "@/app/ui/invoices/create-form";
 import { fetchCustomers } from "@/app/lib/data";
 
-interface IPage {
-  dummyProp?: undefined;
-}
-
-const Page: React.FC<IPage> = async ({ dummyProp }) => {
+const Page: React.FC = async () => {
   const customers = await fetchCustomers();
 
   return (
