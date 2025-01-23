@@ -2,6 +2,7 @@ import React from "react";
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import Form from "@/app/ui/invoices/edit-form";
 import { fetchCustomers, fetchInvoiceById } from "@/app/lib/data";
+import { notFound } from "next/navigation";
 
 interface IPage {
   params: Promise<{ id: string }>;
@@ -14,6 +15,9 @@ const Page: React.FC<IPage> = async (props) => {
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
+  if (!invoice) {
+    notFound();
+  }
   return (
     <main>
       <Breadcrumbs
